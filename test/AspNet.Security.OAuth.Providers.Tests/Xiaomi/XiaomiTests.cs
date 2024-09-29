@@ -4,23 +4,10 @@
  * for more information concerning the license and the contributors participating to this project.
  */
 
-using System.Security.Claims;
-using System.Threading.Tasks;
-
-using Microsoft.AspNetCore.Authentication;
-
-using Xunit;
-using Xunit.Abstractions;
-
 namespace AspNet.Security.OAuth.Xiaomi;
 
-public class XiaomiTests : OAuthTests<XiaomiAuthenticationOptions>
+public class XiaomiTests(ITestOutputHelper outputHelper) : OAuthTests<XiaomiAuthenticationOptions>(outputHelper)
 {
-    public XiaomiTests(ITestOutputHelper outputHelper)
-    {
-        OutputHelper = outputHelper;
-    }
-
     public override string DefaultScheme => XiaomiAuthenticationDefaults.AuthenticationScheme;
 
     protected internal override void RegisterAuthentication(AuthenticationBuilder builder)

@@ -20,9 +20,8 @@ public partial class LinkedInAuthenticationHandler : OAuthHandler<LinkedInAuthen
     public LinkedInAuthenticationHandler(
         [NotNull] IOptionsMonitor<LinkedInAuthenticationOptions> options,
         [NotNull] ILoggerFactory logger,
-        [NotNull] UrlEncoder encoder,
-        [NotNull] ISystemClock clock)
-        : base(options, logger, encoder, clock)
+        [NotNull] UrlEncoder encoder)
+        : base(options, logger, encoder)
     {
     }
 
@@ -31,19 +30,9 @@ public partial class LinkedInAuthenticationHandler : OAuthHandler<LinkedInAuthen
         [NotNull] AuthenticationProperties properties,
         [NotNull] OAuthTokenResponse tokens)
     {
-        string requestUri = Options.UserInformationEndpoint;
-        var fields = Options.Fields
-            .Where(f => !string.Equals(f, LinkedInAuthenticationConstants.EmailAddressField, StringComparison.OrdinalIgnoreCase))
-            .ToList();
-
-        // If at least one field is specified, append the fields to the endpoint URL.
-        if (fields.Count > 0)
-        {
-            requestUri = QueryHelpers.AddQueryString(requestUri, "projection", $"({string.Join(',', fields)})");
-        }
+        var requestUri = Options.UserInformationEndpoint;
 
         using var request = new HttpRequestMessage(HttpMethod.Get, requestUri);
-        request.Headers.Add("x-li-format", "json");
         request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", tokens.AccessToken);
 
         using var response = await Backchannel.SendAsync(request, Context.RequestAborted);
@@ -59,20 +48,11 @@ public partial class LinkedInAuthenticationHandler : OAuthHandler<LinkedInAuthen
         var context = new OAuthCreatingTicketContext(principal, properties, Context, Scheme, Options, Backchannel, tokens, payload.RootElement);
         context.RunClaimActions();
 
-        if (!string.IsNullOrEmpty(Options.EmailAddressEndpoint) &&
-            Options.Fields.Contains(LinkedInAuthenticationConstants.EmailAddressField))
-        {
-            string? email = await GetEmailAsync(tokens);
-            if (!string.IsNullOrEmpty(email))
-            {
-                identity.AddClaim(new Claim(ClaimTypes.Email, email, ClaimValueTypes.String, Options.ClaimsIssuer));
-            }
-        }
-
         await Events.CreatingTicket(context);
         return new AuthenticationTicket(context.Principal!, context.Properties, Scheme.Name);
     }
 
+    [Obsolete("This method is no longer used and will be removed in a future version.", false)]
     protected virtual async Task<string?> GetEmailAsync([NotNull] OAuthTokenResponse tokens)
     {
         using var request = new HttpRequestMessage(HttpMethod.Get, Options.EmailAddressEndpoint);

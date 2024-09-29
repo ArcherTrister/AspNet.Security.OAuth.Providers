@@ -18,9 +18,8 @@ public partial class VkontakteAuthenticationHandler : OAuthHandler<VkontakteAuth
     public VkontakteAuthenticationHandler(
         [NotNull] IOptionsMonitor<VkontakteAuthenticationOptions> options,
         [NotNull] ILoggerFactory logger,
-        [NotNull] UrlEncoder encoder,
-        [NotNull] ISystemClock clock)
-        : base(options, logger, encoder, clock)
+        [NotNull] UrlEncoder encoder)
+        : base(options, logger, encoder)
     {
     }
 
@@ -50,7 +49,19 @@ public partial class VkontakteAuthenticationHandler : OAuthHandler<VkontakteAuth
         }
 
         using var container = JsonDocument.Parse(await response.Content.ReadAsStringAsync(Context.RequestAborted));
-        using var enumerator = container.RootElement.GetProperty("response").EnumerateArray();
+
+        if (!container.RootElement.TryGetProperty("response", out var profileResponse))
+        {
+            if (container.RootElement.TryGetProperty("error", out var error) &&
+                error.ValueKind is JsonValueKind.String)
+            {
+                throw new InvalidOperationException($"An error occurred while retrieving the user profile: {error.GetString()}");
+            }
+
+            throw new InvalidOperationException("An error occurred while retrieving the user profile.");
+        }
+
+        using var enumerator = profileResponse.EnumerateArray();
         var payload = enumerator.First();
 
         var principal = new ClaimsPrincipal(identity);

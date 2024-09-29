@@ -3,7 +3,7 @@
   <Import Project="Sdk.props" Sdk="Microsoft.DotNet.Arcade.Sdk" />
 
   <PropertyGroup>
-    <DefaultNetCoreTargetFramework>net7.0</DefaultNetCoreTargetFramework>
+    <DefaultNetCoreTargetFramework>net8.0</DefaultNetCoreTargetFramework>
     <LangVersion>latest</LangVersion>
     <NoWarn>$(NoWarn);CS1591</NoWarn>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
@@ -45,6 +45,7 @@
     <PackageIconFullPath>$(MSBuildThisFileDirectory)package-icon.png</PackageIconFullPath>
     <PackageProjectUrl>https://github.com/ArcherTrister/AspNet.Security.OAuth.Providers</PackageProjectUrl>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>git://github.com/ArcherTrister/AspNet.Security.OAuth.Providers</RepositoryUrl>
   </PropertyGroup>
@@ -68,12 +69,20 @@
     <EnableNETAnalyzers>true</EnableNETAnalyzers>
   </PropertyGroup>
 
+  <PropertyGroup Condition=" '$(IsPackable)' == 'true' ">
+    <EnableAotAnalyzer>true</EnableAotAnalyzer>
+    <EnableSingleFileAnalyzer>true</EnableSingleFileAnalyzer>
+    <EnableTrimAnalyzer>true</EnableTrimAnalyzer>
+    <IsAotCompatible>true</IsAotCompatible>
+    <IsTrimmable>true</IsTrimmable>
+  </PropertyGroup>
+
   <PropertyGroup>
     <EnablePackageValidation>$(IsPackable)</EnablePackageValidation>
   </PropertyGroup>
 
   <ItemGroup>
-    <AdditionalFiles Include="$(MSBuildThisFileDirectory)stylecop.json" Link="stylecop.json" />
+    <AdditionalFiles Include="$(MSBuildThisFileDirectory)stylecop.json" Link="stylecop.json" Visible="false" />
     <PackageReference Include="StyleCop.Analyzers" PrivateAssets="All" />
   </ItemGroup>
 
@@ -90,6 +99,10 @@
     <Using Include="JetBrains.Annotations" />
     <Using Include="Microsoft.AspNetCore.Authentication" />
     <Using Include="Microsoft.AspNetCore.Authentication.OAuth" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)$(PackageReadmeFile)" Pack="True" PackagePath="" Visible="false" />
   </ItemGroup>
 
 </Project>

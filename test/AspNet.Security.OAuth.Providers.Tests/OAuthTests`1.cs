@@ -20,7 +20,7 @@ using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
 using Microsoft.Extensions.Options;
-using Moq;
+using NSubstitute;
 
 namespace AspNet.Security.OAuth;
 
@@ -31,7 +31,7 @@ namespace AspNet.Security.OAuth;
 public abstract class OAuthTests<TOptions> : ITestOutputHelperAccessor
     where TOptions : OAuthOptions, new()
 {
-    protected OAuthTests()
+    protected OAuthTests(ITestOutputHelper outputHelper)
     {
         Interceptor = new HttpClientInterceptorOptions()
             .ThrowsOnMissingRegistration()
@@ -43,6 +43,8 @@ public abstract class OAuthTests<TOptions> : ITestOutputHelperAccessor
             RedirectParameters = RedirectParameters,
             RedirectUri = RedirectUri,
         };
+
+        OutputHelper = outputHelper;
     }
 
     /// <summary>
@@ -94,6 +96,19 @@ public abstract class OAuthTests<TOptions> : ITestOutputHelperAccessor
     /// <param name="app">The application.</param>
     protected internal virtual void ConfigureApplication(IApplicationBuilder app)
     {
+        // No-op
+    }
+
+    protected async Task AuthenticateUserAndAssertClaimValue(string claimType, string claimValue, Action<IServiceCollection>? configureServices = null)
+    {
+        // Arrange
+        using var server = CreateTestServer(configureServices);
+
+        // Act
+        var claims = await AuthenticateUserAsync(server);
+
+        // Assert
+        AssertClaim(claims, claimType, claimValue);
     }
 
     /// <summary>
@@ -134,7 +149,7 @@ public abstract class OAuthTests<TOptions> : ITestOutputHelperAccessor
     public async Task OnCreatingTicket_Is_Raised_By_Handler()
     {
         // Arrange
-        bool onCreatingTicketEventRaised = false;
+        var onCreatingTicketEventRaised = false;
 
         void ConfigureServices(IServiceCollection services)
         {
@@ -166,7 +181,7 @@ public abstract class OAuthTests<TOptions> : ITestOutputHelperAccessor
     public async Task OnCreatingTicket_Is_Raised_By_Handler_Using_Custom_Events_Type()
     {
         // Arrange
-        bool onCreatingTicketEventRaised = false;
+        var onCreatingTicketEventRaised = false;
 
         void ConfigureServices(IServiceCollection services)
         {
@@ -261,7 +276,7 @@ public abstract class OAuthTests<TOptions> : ITestOutputHelperAccessor
             result.Content.Headers.ContentType.ShouldNotBeNull();
             result.Content.Headers.ContentType!.MediaType.ShouldBe("text/xml");
 
-            string xml = await result.Content.ReadAsStringAsync();
+            var xml = await result.Content.ReadAsStringAsync();
 
             element = XElement.Parse(xml);
         }
@@ -288,7 +303,7 @@ public abstract class OAuthTests<TOptions> : ITestOutputHelperAccessor
     {
         actual.ShouldContainKey(claimType);
 
-        string actualValue = actual[claimType].Value;
+        var actualValue = actual[claimType].Value;
 
         // Parse date strings as DateTimeOffsets so that local time zone differences
         // do not cause claims which are ISO date values to fail to assert correctly.
@@ -306,7 +321,7 @@ public abstract class OAuthTests<TOptions> : ITestOutputHelperAccessor
     protected async Task<Uri> BuildChallengeUriAsync<THandler>(
         TOptions options,
         string redirectUrl,
-        Func<IOptionsMonitor<TOptions>, ILoggerFactory, UrlEncoder, ISystemClock, THandler> factory,
+        Func<IOptionsMonitor<TOptions>, ILoggerFactory, UrlEncoder, THandler> factory,
         AuthenticationProperties? properties = null)
         where THandler : OAuthHandler<TOptions>
     {
@@ -326,34 +341,32 @@ public abstract class OAuthTests<TOptions> : ITestOutputHelperAccessor
 
         if (options.StateDataFormat is null)
         {
-            var dataProtector = new Mock<IDataProtector>();
+            var dataProtector = Substitute.For<IDataProtector>();
 
-            dataProtector.Setup((p) => p.Protect(It.IsAny<byte[]>()))
-                         .Returns(Array.Empty<byte>());
+            dataProtector.Protect(Arg.Any<byte[]>())
+                         .Returns([]);
 
-            options.StateDataFormat ??= new PropertiesDataFormat(dataProtector.Object);
+            options.StateDataFormat ??= new PropertiesDataFormat(dataProtector);
         }
 
-        var mock = new Mock<IOptionsMonitor<TOptions>>();
+        var optionsMonitor = Substitute.For<IOptionsMonitor<TOptions>>();
 
-        mock.Setup((p) => p.CurrentValue).Returns(options);
-        mock.Setup((p) => p.Get(scheme.Name)).Returns(options);
+        optionsMonitor.CurrentValue.Returns(options);
+        optionsMonitor.Get(scheme.Name).Returns(options);
 
-        var optionsMonitor = mock.Object;
         var loggerFactory = NullLoggerFactory.Instance;
         var encoder = UrlEncoder.Default;
-        var clock = new SystemClock();
 
-        var handler = factory(optionsMonitor, loggerFactory, encoder, clock);
+        var handler = factory(optionsMonitor, loggerFactory, encoder);
 
         await handler.InitializeAsync(scheme, context);
 
         var type = handler.GetType();
         var method = type.GetMethod("BuildChallengeUrl", BindingFlags.NonPublic | BindingFlags.Instance);
 
-        object[] parameters = new object[] { properties, redirectUrl };
+        var parameters = new object[] { properties, redirectUrl };
 
-        string url = (string)method!.Invoke(handler, parameters)!;
+        var url = (string)method!.Invoke(handler, parameters)!;
 
         url.ShouldNotBeNullOrWhiteSpace();
         if (!Uri.TryCreate(url, UriKind.Absolute, out var uri))

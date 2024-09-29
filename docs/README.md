@@ -40,43 +40,43 @@ and a link to a provider-specific document for that provider. If the provider
 you are using is not listed, it does not have any specific documentation and is
 covered by the section above.
 
-|      Provider      | Required or Optional Settings |                            Documentation Link                            |
-| :----------------: | :---------------------------: | :----------------------------------------------------------------------: |
-|       Amazon       |          _Optional_           |        [Documentation](amazon.md "Amazon provider documentation")        |
-|       Apple        |         **Required**          |  [Documentation](sign-in-with-apple.md "Apple provider documentation")   |
-|     BattleNet      |         **Required**          |     [Documentation](battlenet.md "BattleNet provider documentation")     |
-|     Bitbucket      |          _Optional_           |     [Documentation](bitbucket.md "Bitbucket provider documentation")     |
-|    DigitalOcean    |          _Optional_           |  [Documentation](digitalocean.md "DigitalOcean provider documentation")  |
-|      Discord       |          _Optional_           |       [Documentation](discord.md "Discord provider documentation")       |
-|        eBay        |         **Required**          |          [Documentation](ebay.md "eBay provider documentation")          |
-|     EVEOnline      |          _Optional_           |     [Documentation](eveonline.md "EVEOnline provider documentation")     |
-|     Foursquare     |          _Optional_           |    [Documentation](foursquare.md "Foursquare provider documentation")    |
-|       GitHub       |          _Optional_           |        [Documentation](github.md "GitHub provider documentation")        |
-|       Gitee        |          _Optional_           |         [Documentation](gitee.md "Gitee provider documentation")         |
-|       Huawei       |          _Optional_           |        [Documentation](huawei.md "Huawei provider documentation")        |
-|     Instagram      |          _Optional_           |     [Documentation](instagram.md "Instagram provider documentation")     |
-|     Kloudless      |          _Optional_           |     [Documentation](kloudless.md "Kloudless provider documentation")     |
-|        KOOK        |          _Optional_           |          [Documentation](kook.md "KOOK provider documentation")          |
-|        Line        |          _Optional_           |          [Documentation](line.md "Line provider documentation")          |
-|      LinkedIn      |          _Optional_           |      [Documentation](linkedin.md "LinkedIn provider documentation")      |
-|   Odnoklassniki    |          _Optional_           | [Documentation](odnoklassniki.md "Odnoklassniki provider documentation") |
-|        Okta        |         **Required**          |          [Documentation](okta.md "Okta provider documentation")          |
-|      Patreon       |          _Optional_           |       [Documentation](patreon.md "Patreon provider documentation")       |
-|      PingOne       |          _Optional_           |       [Documentation](pingone.md "PingOne provider documentation")       |
-|         QQ         |          _Optional_           |            [Documentation](qq.md "QQ provider documentation")            |
-|       Reddit       |          _Optional_           |        [Documentation](reddit.md "Reddit provider documentation")        |
-|     Salesforce     |          _Optional_           |    [Documentation](salesforce.md "Salesforce provider documentation")    |
-|     Smartsheet     |          _Optional_           |    [Documentation](smartsheet.md "Smartsheet provider documentation")    |
-|      Snapchat      |          _Optional_           |      [Documentation](snapchat.md "Snapchat provider documentation")      |
-|   StackExchange    |          _Optional_           | [Documentation](stackexchange.md "StackExchange provider documentation") |
-|    SuperOffice     |         **Required**          |   [Documentation](superoffice.md "SuperOffice provider documentation")   |
-|       Trakt        |          _Optional_           |         [Documentation](trakt.md "Trakt provider documentation")         |
-|       Trovo        |          _Optional_           |         [Documentation](trovo.md "Trovo provider documentation")         |
-|       Twitch       |          _Optional_           |        [Documentation](twitch.md "Twitch provider documentation")        |
-|      Twitter       |          _Optional_           |       [Documentation](twitter.md "Twitter provider documentation")       |
-|     Vkontakte      |          _Optional_           |     [Documentation](vkontakte.md "Vkontakte provider documentation")     |
-|       Weibo        |          _Optional_           |         [Documentation](weibo.md "Weibo provider documentation")         |
-| WorkWeixin (WeCom) |          _Optional_           |    [Documentation](workweixin.md "WorkWeixin provider documentation")    |
-|        Xero        |          _Optional_           |          [Documentation](xero.md "Xero provider documentation")          |
-|       Xiaomi       |          _Optional_           |        [Documentation](xiaomi.md "Xiaomi provider documentation")        |
-|        Xumm        |          _Optional_           |          [Documentation](xumm.md "Xumm provider documentation")          |
+| Provider | Required or Optional Settings | Documentation Link |
+|:-:|:-:|:-:|
+| Amazon | _Optional_ | [Documentation](amazon.md "Amazon provider documentation") |
+| Apple | **Required** | [Documentation](sign-in-with-apple.md "Apple provider documentation") |
+| BattleNet | **Required** | [Documentation](battlenet.md "BattleNet provider documentation") |
+| Bitbucket | _Optional_ | [Documentation](bitbucket.md "Bitbucket provider documentation") |
+| DigitalOcean | _Optional_ | [Documentation](digitalocean.md "DigitalOcean provider documentation") |
+| Discord | _Optional_ | [Documentation](discord.md "Discord provider documentation") |
+| Docusign | **Required** | [Documentation](docusign.md "Docusign provider documentation") |
+| eBay | **Required** | [Documentation](ebay.md "eBay provider documentation") |
+| EVEOnline | _Optional_ | [Documentation](eveonline.md "EVEOnline provider documentation") |
+| Foursquare | _Optional_ | [Documentation](foursquare.md "Foursquare provider documentation") |
+| GitHub | _Optional_ | [Documentation](github.md "GitHub provider documentation") |
+| Gitee | _Optional_ | [Documentation](gitee.md "Gitee provider documentation") |
+| Huawei | _Optional_ | [Documentation](huawei.md "Huawei provider documentation") |
+| Instagram | _Optional_ | [Documentation](instagram.md "Instagram provider documentation") |
+| KOOK | _Optional_ | [Documentation](kook.md "KOOK provider documentation") |
+| Line | _Optional_ | [Documentation](line.md "Line provider documentation") |
+| LinkedIn | _Optional_ | [Documentation](linkedin.md "LinkedIn provider documentation") |
+| Odnoklassniki | _Optional_ | [Documentation](odnoklassniki.md "Odnoklassniki provider documentation") |
+| Okta | **Required** | [Documentation](okta.md "Okta provider documentation") |
+| Patreon | _Optional_ | [Documentation](patreon.md "Patreon provider documentation") |
+| PingOne | _Optional_ | [Documentation](pingone.md "PingOne provider documentation") |
+| QQ | _Optional_ | [Documentation](qq.md "QQ provider documentation") |
+| Reddit | _Optional_ | [Documentation](reddit.md "Reddit provider documentation") |
+| Salesforce | _Optional_ | [Documentation](salesforce.md "Salesforce provider documentation") |
+| Smartsheet | _Optional_ | [Documentation](smartsheet.md "Smartsheet provider documentation") |
+| Snapchat | _Optional_ | [Documentation](snapchat.md "Snapchat provider documentation") |
+| StackExchange | _Optional_ | [Documentation](stackexchange.md "StackExchange provider documentation") |
+| SuperOffice | **Required** | [Documentation](superoffice.md "SuperOffice provider documentation") |
+| Trakt | _Optional_ | [Documentation](trakt.md "Trakt provider documentation") |
+| Trovo | _Optional_ | [Documentation](trovo.md "Trovo provider documentation") |
+| Twitch | _Optional_ | [Documentation](twitch.md "Twitch provider documentation") |
+| Twitter | _Optional_ | [Documentation](twitter.md "Twitter provider documentation") |
+| Vkontakte | _Optional_ | [Documentation](vkontakte.md "Vkontakte provider documentation") |
+| Weibo | _Optional_ | [Documentation](weibo.md "Weibo provider documentation") |
+| WorkWeixin (WeCom) | _Optional_ | [Documentation](workweixin.md "WorkWeixin provider documentation") |
+| Xero | _Optional_ | [Documentation](xero.md "Xero provider documentation") |
+| Xiaomi | _Optional_ | [Documentation](xiaomi.md "Xiaomi provider documentation") |
+| Xumm | _Optional_ | [Documentation](xumm.md "Xumm provider documentation") |
