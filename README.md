@@ -103,7 +103,7 @@ We would love it if you could help contributing to this repository.
 * [Vicente Yu](https://github.com/vicenteyu)
 * [Volodymyr Baydalka](https://github.com/zVolodymyr)
 * [Logan Dam](https://github.com/biltongza)
-* [Logan Dam](https://github.com/ArcherTrister)
+* [ArcherTrister](https://github.com/ArcherTrister)
 
 ## Security policy
 
