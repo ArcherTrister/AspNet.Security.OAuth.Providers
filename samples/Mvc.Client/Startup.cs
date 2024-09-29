@@ -56,6 +56,13 @@ public class Startup
             options.Scope.Add("user:email");
         })
 
+        .AddXiaomi(options =>
+        {
+            options.ClientId = Configuration["Xiaomi:AppID"] ?? string.Empty;
+            options.ClientSecret = Configuration["Xiaomi:AppSecret"] ?? string.Empty;
+            options.SkipConfirm = false;
+        })
+
         /*
         .AddApple(options =>
         {

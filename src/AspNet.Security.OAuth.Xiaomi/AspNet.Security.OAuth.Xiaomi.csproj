@@ -2,12 +2,13 @@
 
   <PropertyGroup>
     <TargetFrameworks>$(DefaultNetCoreTargetFramework)</TargetFrameworks>
+    <NoWarn>$(NoWarn);SA1636</NoWarn>
   </PropertyGroup>
 
   <!-- TODO Remove once published to NuGet.org -->
   <PropertyGroup>
     <DisablePackageBaselineValidation>true</DisablePackageBaselineValidation>
-    <PackageValidationBaselineVersion>7.0.3</PackageValidationBaselineVersion>
+    <PackageValidationBaselineVersion>8.2.0</PackageValidationBaselineVersion>
   </PropertyGroup>
   
   <PropertyGroup>
