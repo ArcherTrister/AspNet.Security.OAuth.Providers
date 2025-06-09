@@ -52,13 +52,16 @@ covered by the section above.
 | eBay | **Required** | [Documentation](ebay.md "eBay provider documentation") |
 | EVEOnline | _Optional_ | [Documentation](eveonline.md "EVEOnline provider documentation") |
 | Foursquare | _Optional_ | [Documentation](foursquare.md "Foursquare provider documentation") |
+| GitCode | _Optional_ | [Documentation](gitcode.md "GitCode provider documentation") |
 | GitHub | _Optional_ | [Documentation](github.md "GitHub provider documentation") |
 | Gitee | _Optional_ | [Documentation](gitee.md "Gitee provider documentation") |
 | Huawei | _Optional_ | [Documentation](huawei.md "Huawei provider documentation") |
 | Instagram | _Optional_ | [Documentation](instagram.md "Instagram provider documentation") |
 | KOOK | _Optional_ | [Documentation](kook.md "KOOK provider documentation") |
 | Line | _Optional_ | [Documentation](line.md "Line provider documentation") |
+| Linear | _Optional_ | [Documentation](linear.md "Linear provider documentation") |
 | LinkedIn | _Optional_ | [Documentation](linkedin.md "LinkedIn provider documentation") |
+| Miro | _Optional_ | [Documentation](miro.md "Miro provider documentation") |
 | Odnoklassniki | _Optional_ | [Documentation](odnoklassniki.md "Odnoklassniki provider documentation") |
 | Okta | **Required** | [Documentation](okta.md "Okta provider documentation") |
 | Patreon | _Optional_ | [Documentation](patreon.md "Patreon provider documentation") |
@@ -75,6 +78,7 @@ covered by the section above.
 | Twitch | _Optional_ | [Documentation](twitch.md "Twitch provider documentation") |
 | Twitter | _Optional_ | [Documentation](twitter.md "Twitter provider documentation") |
 | Vkontakte | _Optional_ | [Documentation](vkontakte.md "Vkontakte provider documentation") |
+| Webflow | _Optional_ | [Documentation](webflow.md "Webflow provider documentation") |
 | Weibo | _Optional_ | [Documentation](weibo.md "Weibo provider documentation") |
 | WorkWeixin (WeCom) | _Optional_ | [Documentation](workweixin.md "WorkWeixin provider documentation") |
 | Xero | _Optional_ | [Documentation](xero.md "Xero provider documentation") |
