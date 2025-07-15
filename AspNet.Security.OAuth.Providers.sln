@@ -184,7 +184,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{C2CA4B38-A
 		docs\bitbucket.md = docs\bitbucket.md
 		docs\digitalocean.md = docs\digitalocean.md
 		docs\discord.md = docs\discord.md
-		docs\docusign.md = docs\docusign.md
 		docs\dropbox.md = docs\dropbox.md
 		docs\ebay.md = docs\ebay.md
 		docs\eveonline.md = docs\eveonline.md
@@ -221,6 +220,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{C2CA4B38-A
 		docs\xiaomi.md = docs\xiaomi.md
 		docs\xumm.md = docs\xumm.md
 		docs\zendesk.md = docs\zendesk.md
+		docs\docusign.md = docs\docusign.md
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNet.Security.OAuth.Basecamp", "src\AspNet.Security.OAuth.Basecamp\AspNet.Security.OAuth.Basecamp.csproj", "{42306484-B2BF-4B52-B950-E0CDFA58B02A}"
@@ -311,6 +311,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNet.Security.OAuth.Docusign", "src\AspNet.Security.OAuth.Docusign\AspNet.Security.OAuth.Docusign.csproj", "{4E96BD06-04CD-4014-BA42-10D2CDB820D6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNet.Security.OAuth.Zoho", "src\AspNet.Security.OAuth.Zoho\AspNet.Security.OAuth.Zoho.csproj", "{CD56ABE4-1CD2-4029-B556-E110A31A2CC4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNet.Security.OAuth.VkId", "src\AspNet.Security.OAuth.VkId\AspNet.Security.OAuth.VkId.csproj", "{F3E62C24-5F82-4CF5-A994-0E10D04FB495}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNet.Security.OAuth.Xiaomi", "src\AspNet.Security.OAuth.Xiaomi\AspNet.Security.OAuth.Xiaomi.csproj", "{7392EF09-8C41-4037-BC0A-BF986C814510}"
 EndProject
@@ -724,6 +726,10 @@ Global
 		{CD56ABE4-1CD2-4029-B556-E110A31A2CC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CD56ABE4-1CD2-4029-B556-E110A31A2CC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CD56ABE4-1CD2-4029-B556-E110A31A2CC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3E62C24-5F82-4CF5-A994-0E10D04FB495}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3E62C24-5F82-4CF5-A994-0E10D04FB495}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3E62C24-5F82-4CF5-A994-0E10D04FB495}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3E62C24-5F82-4CF5-A994-0E10D04FB495}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7392EF09-8C41-4037-BC0A-BF986C814510}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7392EF09-8C41-4037-BC0A-BF986C814510}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7392EF09-8C41-4037-BC0A-BF986C814510}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -840,6 +846,7 @@ Global
 		{55975423-C9C0-4C47-AD00-0F012F30AD3C} = {C1352FD3-AE8B-43EE-B45B-F6E0B3FBAC6D}
 		{4E96BD06-04CD-4014-BA42-10D2CDB820D6} = {C1352FD3-AE8B-43EE-B45B-F6E0B3FBAC6D}
 		{CD56ABE4-1CD2-4029-B556-E110A31A2CC4} = {C1352FD3-AE8B-43EE-B45B-F6E0B3FBAC6D}
+		{F3E62C24-5F82-4CF5-A994-0E10D04FB495} = {C1352FD3-AE8B-43EE-B45B-F6E0B3FBAC6D}
 		{7392EF09-8C41-4037-BC0A-BF986C814510} = {C1352FD3-AE8B-43EE-B45B-F6E0B3FBAC6D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
