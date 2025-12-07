@@ -5,12 +5,6 @@
     <NoWarn>$(NoWarn);SA1636</NoWarn>
   </PropertyGroup>
 
-  <!-- TODO Remove once published to NuGet.org -->
-  <PropertyGroup>
-    <DisablePackageBaselineValidation>true</DisablePackageBaselineValidation>
-    <PackageValidationBaselineVersion>8.2.0</PackageValidationBaselineVersion>
-  </PropertyGroup>
-  
   <PropertyGroup>
     <Description>ASP.NET Core security middleware enabling Xiaomi authentication.</Description>
     <Authors>ArcherTrister</Authors>

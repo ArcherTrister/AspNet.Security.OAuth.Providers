@@ -84,6 +84,7 @@
     <File Path="docs/webflow.md" />
     <File Path="docs/weibo.md" />
     <File Path="docs/workweixin.md" />
+    <File Path="docs/xiaomi.md" />
     <File Path="docs/xumm.md" />
     <File Path="docs/zendesk.md" />
   </Folder>
@@ -192,6 +193,7 @@
     <Project Path="src/AspNet.Security.OAuth.WordPress/AspNet.Security.OAuth.WordPress.csproj" />
     <Project Path="src/AspNet.Security.OAuth.WorkWeixin/AspNet.Security.OAuth.WorkWeixin.csproj" />
     <Project Path="src/AspNet.Security.OAuth.Xero/AspNet.Security.OAuth.Xero.csproj" />
+    <Project Path="src/AspNet.Security.OAuth.Xiaomi/AspNet.Security.OAuth.Xiaomi.csproj" />
     <Project Path="src/AspNet.Security.OAuth.Xumm/AspNet.Security.OAuth.Xumm.csproj" />
     <Project Path="src/AspNet.Security.OAuth.Yahoo/AspNet.Security.OAuth.Yahoo.csproj" />
     <Project Path="src/AspNet.Security.OAuth.Yammer/AspNet.Security.OAuth.Yammer.csproj" />
